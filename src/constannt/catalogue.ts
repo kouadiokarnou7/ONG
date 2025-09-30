@@ -1,0 +1,1 @@
+// les constantes de fichiers de json
