@@ -4,12 +4,12 @@ import Header from '../composants/header';
 import Accueil from '../composants/accueil';
 import Catalogue from '../composants/catalogue';
 import Apropos from '../composants/apropos';
-import Contact from '../composants/contact';
+import ContactForm from '../composants/contact';
 import Footer from '../composants/footer';
 
 const Home = () => {
   return (
-    <div className="bg-white min-h-screen  flex flex-col">
+    <div className="bg-blue-50 min-h-screen  flex flex-col">
       {/* Header fixé en haut */}
       <Header />
 
@@ -18,9 +18,8 @@ const Home = () => {
         <Accueil />
         <Catalogue />
         <Apropos />
-        <Contact />
+        <ContactForm />
       </main>
-
       {/* Footer collé en bas */}
       <Footer />
     </div>
