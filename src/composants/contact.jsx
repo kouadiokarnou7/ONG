@@ -4,7 +4,7 @@ import React from "react";
 function contact () {
 
     return (
-        <section id="contact" className="bg-white py-20">
+        <section id="contact" className="bg-blue-50 w-full min-h-screen flex flex-col justify-center items-center px-6">
           <div className="container mx-auto max-w-lg">
             <h2 className="text-3xl font-bold text-blue-900 text-center mb-6">Contactez-nous</h2>
             <form className="flex flex-col gap-4">

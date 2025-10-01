@@ -9,7 +9,7 @@ function Catalogue () {
       ];
     return(
 
-        <section id="catalogue" className="bg-white py-20">
+        <section id="catalogue" className="bg-blue-50 w-full min-h-screen flex flex-col justify-center items-center px-6">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-blue-900 text-center mb-10">Nos ONG</h2>
           <div className="grid md:grid-cols-3 gap-6">
