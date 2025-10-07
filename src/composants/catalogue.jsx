@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ongList } from "../constant/catalogue";
+import onglist from "../composantjson/catalogue.json";
 
 // Page catalogue: on enlève la description sur la carte.
 // Le bouton "En savoir +" ouvre un modal avec plus d'informations.
@@ -8,11 +8,11 @@ function Catalogue() {
   const [selectedOng, setSelectedOng] = useState(null);
 
   // ONG mises en avant (6 max)
-  const visibleOngs = ongList.slice(0, 6);
+  const visibleOngs = onglist.slice(0, 6);
 
   // Si recherche, on filtre sur toute la liste
   const filteredOngs = searchTerm
-    ? ongList.filter(
+    ? onglist.filter(
         (ong) =>
           ong.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           ong.cause.toLowerCase().includes(searchTerm.toLowerCase())

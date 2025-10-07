@@ -91,7 +91,7 @@ function Header() {
 
         {/* Connexion ONG - À droite */}
         <a 
-          href="/login-ong" 
+          href="/connexion" 
           className="hidden md:flex items-center space-x-2 px-4 py-2 border-2 border-white rounded-lg hover:bg-white hover:text-red-700 transition-all font-semibold"
         >
           
@@ -147,7 +147,7 @@ function Header() {
           {/* Connexion ONG Mobile */}
           <div className="pt-4 border-t border-white border-opacity-30">
             <a 
-              href="/login-ong"
+              href="/connexion"
               className="flex items-center justify-center space-x-2 w-full px-5 py-3 border-2 border-white rounded-lg hover:bg-white hover:text-blue-700 transition-all font-semibold"
               onClick={() => setIsOpen(false)}
             >

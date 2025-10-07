@@ -36,10 +36,10 @@ function Accueil() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => window.location.href = '#contact'}
+              onClick={() => window.location.href = '/inscription'}
               className="bg-green-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition-all shadow-lg hover:scale-105"
             >
-              Rejoindre en tant qu'ONG
+              Rejoindre la communauté 
             </button>
             <button 
               onClick={() => window.location.href = '#apropos'}

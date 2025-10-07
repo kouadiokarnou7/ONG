@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "ONG Santé",
+    "desc": "Accès aux soins dans les zones rurales.",
+    "cause": "Améliorer l’accès aux soins de santé primaires pour les populations isolées.",
+    "action": ["En savoir+", "dons", "bénévoles"],
+    "image": "/image05.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Éducation Espoir",
+    "desc": "Soutien scolaire pour enfants défavorisés.",
+    "cause": "Offrir une éducation de qualité et du matériel scolaire aux enfants défavorisés.",
+    "action": ["En savoir+","dons"],
+    "image": "/images.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Environnement Vert",
+    "desc": "Protection de la nature et écologie.",
+    "cause": "Préserver la biodiversité et promouvoir des pratiques écologiques durables.",
+    "action": ["En savoir+","bénévoles"],
+    "image": "/image3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Respire Libre",
+    "desc": "Une ONG dédiée à la lutte contre les maladies respiratoires.",
+    "cause": "Améliorer la qualité de vie des personnes atteintes de maladies respiratoires à travers la sensibilisation, le soutien et la recherche.",
+    "action": ["En savoir+", "dons", "bénévoles"],
+    "image": "/image5.png"
+  }
+]
