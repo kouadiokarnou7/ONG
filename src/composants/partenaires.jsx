@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import onglist from "../composantjson/catalogue.json";
+import onglist from "../composantjson/partenaires.json";
 
 // Page catalogue: on enlève la description sur la carte.
 // Le bouton "En savoir +" ouvre un modal avec plus d'informations.

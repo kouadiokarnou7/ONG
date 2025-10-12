@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "onga@gmailcom",
+      "password": "password123",
+      "role": "ong"
+    },
+    {
+      "id": 2,
+      "email": "dupont@gmail.com",
+      "password": "ben2024",
+      "role": "benevole"
+    },
+    {
+      "id": 3,
+      "email": "donateur@gmail.com",
+      "password": "donateur2024",
+      "role": "donateur"
+    }
+  ]
+}

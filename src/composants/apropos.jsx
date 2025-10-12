@@ -19,7 +19,7 @@ export default function Apropos() {
         {/* Accordéons */}
         <details className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
           <summary className="text-2xl font-bold text-blue-900 cursor-pointer flex items-center">
-            🎯 Notre Mission
+            🎯 Notre Mission (clicker )
           </summary>
           <div className="mt-4 text-gray-700 text-lg leading-relaxed">
             <p className="mb-2">
@@ -35,7 +35,7 @@ export default function Apropos() {
 
         <details className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
           <summary className="text-2xl font-bold text-blue-900 cursor-pointer flex items-center">
-            💡 Nos Valeurs
+            💡 Nos Valeurs (clicker )
           </summary>
           <div className="mt-4 text-gray-700 text-lg grid grid-cols-1 gap-4">
             <div>

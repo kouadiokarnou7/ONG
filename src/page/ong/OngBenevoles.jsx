@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import dashboardData from "../../composantjson/ongDashboard.json";
 import { Menu, X, LayoutDashboard, FolderKanban, DollarSign, Users, Settings, Plus, Mail, Phone, Clock, Award } from "lucide-react";
- import { Navigate } from "react-router-dom";
+ import { useNavigate } from "react-router-dom";
 
 export default function OngBenevoles() {
   const { ong, volunteers, projects, sidebarMenu } = dashboardData;
@@ -16,6 +16,10 @@ export default function OngBenevoles() {
   const getVolunteerProjects = (volunteerProjects) => {
     return projects.filter(p => volunteerProjects.includes(p.id));
   };
+  const Navigate = useNavigate();
+  const handlelogout =() => {
+    Navigate("/connexion")
+  }
 
   return (
     <div className="flex min-h-screen bg-gray-50">
@@ -64,7 +68,7 @@ export default function OngBenevoles() {
           })}
         </nav>
 
-        <button onClick={()=> Navigate('/')} className="mt-6 w-full py-3 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-medium">
+        <button onClick={handlelogout} className="mt-6 w-full py-3 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-medium">
           Déconnexion
         </button>
       </aside>

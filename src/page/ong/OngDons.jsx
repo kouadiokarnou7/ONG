@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import dashboardData from "../../composantjson/ongDashboard.json";
 import { Menu, X, LayoutDashboard, FolderKanban, DollarSign, Users, Settings, Download, Filter, Search } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function OngDons() {
   const { ong, donations, sidebarMenu } = dashboardData;
@@ -20,6 +21,11 @@ export default function OngDons() {
     const matchesType = filterType === "Tous" || d.type === filterType;
     return matchesSearch && matchesType;
   });
+
+  const navigate = useNavigate();
+  const handleLogout =() => {
+    navigate("/connexion")
+  }
 
   return (
     <div className="flex min-h-screen bg-gray-50">
@@ -68,7 +74,7 @@ export default function OngDons() {
           })}
         </nav>
 
-        <button className="mt-6 w-full py-3 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-medium">
+        <button className="mt-6 w-full py-3 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-medium" onClick={handleLogout}>
           Déconnexion
         </button>
       </aside>

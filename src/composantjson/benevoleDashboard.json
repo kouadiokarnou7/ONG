@@ -1,0 +1,59 @@
+{
+  "benevole": {
+    "nom": "Dupont",
+    "prenom": "Augustin",
+    "email": "dupont@gmail.com",
+    "telephone": "+225 07 12 34 56 78",
+    "dateInscription": "2022-05-15"
+  },
+
+  "projetsOng": [
+    {
+      "id": 1,
+      "nom": "ONG Santé",
+      "projet": "Campagne de sensibilisation",
+      "description": "Sensibilisation aux maladies infectieuses dans les zones rurales.",
+      "dateDebut": "2024-03-01",
+      "dateFin": "2024-09-01",
+      "status": "En cours",
+      "besoinBenevoles": 10,
+      "image": "/image05.jpg",
+      "competencesRequises": "Pas de compétences particulières",
+      "lieu": "Côte d'Ivoire"
+    },
+    {
+      "id": 2,
+      "nom": "Environnement Vert",
+      "projet": "Reforestation communautaire",
+      "description": "Plantation d'arbres pour restaurer les écosystèmes.",
+      "dateDebut": "2024-04-15",
+      "dateFin": "2024-10-15",
+      "status": "À venir",
+      "besoinBenevoles": 30,
+      "image": "/image3.jpg",
+      "competencesRequises": "Pas de compétences particulières",
+      "lieu": "Daloa, Côte d'Ivoire"
+    },
+    {
+      "id": 3,
+      "nom": "Éducation Espoir",
+      "projet": "Soutien scolaire pour enfants défavorisés",
+      "description": "Permettre aux enfants déscolarisés de bénéficier d’un soutien scolaire.",
+      "dateDebut": "2024-11-01",
+      "dateFin": "2024-12-01",
+      "status": "À venir",
+      "besoinBenevoles": 20,
+      "image": "/images.jpg",
+      "competencesRequises": "Pédagogie, patience",
+      "lieu": "Abidjan, Côte d'Ivoire"
+    }
+  ],
+
+  "statistiques": {
+    "totalProjets": 3,
+    "projetsEnCours": 1,
+    "projetsAVenir": 2,
+    "heuresBenevolat": 120,
+    "organisationsPartenaires": 3
+  }
+}

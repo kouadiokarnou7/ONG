@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import dashboardData from "../../composantjson/ongDashboard.json";
 import { Menu, X, LayoutDashboard, FolderKanban, DollarSign, Users, Settings, Save, Upload, Lock, Bell, Globe } from "lucide-react";
-
+import { NavLink, useNavigate } from "react-router-dom";
 export default function OngSettings() {
   const { ong, sidebarMenu } = dashboardData;
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("general");
+  const navigate = useNavigate();
+  const handleLogout =() => {
+    navigate("/connexion")
+  }
   
   // États pour les formulaires
   const [generalInfo, setGeneralInfo] = useState({
@@ -77,7 +81,7 @@ export default function OngSettings() {
           })}
         </nav>
 
-        <button className="mt-6 w-full py-3 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-medium">
+        <button className="mt-6 w-full py-3 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-medium" onClick={() => (window.location.href = '/connexion')}>
           Déconnexion
         </button>
       </aside>

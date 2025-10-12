@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from '../composants/header';
 import Accueil from '../composants/accueil';
-import Catalogue from '../composants/catalogue';
+import Catalogue from '../composants/partenaires';
 import Apropos from '../composants/apropos';
 import ContactForm from '../composants/contact';
 import Footer from '../composants/footer';

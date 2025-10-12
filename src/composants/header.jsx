@@ -72,7 +72,7 @@ function Header() {
               href="#catalogue" 
               className={`${activeSection === 'catalogue' ? 'text-orange-400 font-bold border-b-2 border-yellow-300' : ''} ${currentHoverColor} transition-all pb-1`}
             >
-              Catalogue
+              partenaires
             </a>
             <a 
               href="#apropos" 
@@ -127,7 +127,7 @@ function Header() {
             className={`block ${activeSection === 'catalogue' ? 'text-orange-400 font-bold' : ''} ${currentHoverColor} transition-colors py-2`} 
             onClick={() => setIsOpen(false)}
           >
-            📚 Catalogue
+            📚 partenaires
           </a>
           <a 
             href="#apropos" 

@@ -3,7 +3,7 @@ import Home from './page/home';
 import Connexion from './page/connexion';
 import Inscription from './page/inscription/inscription';
 import InscriptionONG from './page/inscription/InscriptionONG';
-//import InscriptionBenevole from './page/inscription/InscriptionBenevole';
+
 import InscriptionDon from './page/inscription/inscriptiondon';
 import InscriptionBen from './page/inscription/inscriptionben';
 import OngDashboard from './page/ong/ongdashboard';
@@ -12,6 +12,9 @@ import OngDons from './page/ong/OngDons';
 import OngBenevoles from './page/ong/OngBenevoles';
 import OngSettings from './page/ong/OngSettings';
 
+import  BenevoleSettings from './page/benevoles/BenevoleSettings';
+import BenevoleDashboard from './page/benevoles/BenevoleDashboard';
+import BenevoleStats from './page/benevoles/BenevoleStats';
 function App() {
   return (
     <BrowserRouter>
@@ -33,6 +36,10 @@ function App() {
         <Route path="/ong/benevoles" element={<OngBenevoles />} />
         <Route path="/ong/settings" element={<OngSettings />} />
 
+        {/* Routes Bénévole Dashboard */}
+        <Route path="/benevole/dashboard" element={<BenevoleDashboard />} />
+        <Route path="/benevole/stats" element={<BenevoleStats />} />
+        <Route path="/benevole/settings" element={<BenevoleSettings />} />
       </Routes>
     </BrowserRouter>
   );

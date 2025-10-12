@@ -1,13 +1,38 @@
 import { useState } from 'react';
 import logo4 from '../assets/logo1.png';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import data from "../composantjson/utilisateurs.json";
 
 export default function Connexion() {
   const [showPassword, setShowPassword] = useState(false);
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const user = data.users.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (user) {
+      if (user.role === "ong") {
+        navigate("/ong/dashboard");
+      } else if (user.role === "benevole") {
+        navigate("/benevole/dashboard");
+      } else {
+        navigate("/donateur/dashboard");
+      }
+    } else {
+      alert("Identifiants incorrects !");
+    }
+  }; // ✅ ← ICI tu avais oublié cette accolade fermante !
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-orange-50 p-4">
@@ -24,10 +49,13 @@ export default function Connexion() {
 
         {/* Formulaire */}
         <div className="p-6">
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleLogin}>
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Email
               </label>
               <input
@@ -35,26 +63,37 @@ export default function Connexion() {
                 type="email"
                 placeholder="email@gmail.com"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
             {/* Mot de passe */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Mot de passe
               </label>
               <div className="relative">
                 <input
                   id="password"
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
                   className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}
                   className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 hover:text-blue-600"
-                  aria-label={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+                  aria-label={
+                    showPassword
+                      ? "Masquer le mot de passe"
+                      : "Afficher le mot de passe"
+                  }
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
@@ -73,8 +112,11 @@ export default function Connexion() {
           {/* Lien d'inscription */}
           <div className="mt-6 text-center">
             <p className="text-gray-600">
-              Pas encore inscrit ?{' '}
-              <a href="/inscription" className="text-orange-500 font-medium hover:text-orange-600 underline">
+              Pas encore inscrit ?{" "}
+              <a
+                href="/inscription"
+                className="text-orange-500 font-medium hover:text-orange-600 underline"
+              >
                 S'inscrire sur la plateforme
               </a>
             </p>

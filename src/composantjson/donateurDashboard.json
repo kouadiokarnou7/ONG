@@ -1,0 +1,55 @@
+{
+  "donateurs": [
+    {
+      "id": 1,
+      "nom": "sebastien",
+      "prenom": "evans",
+      "email": "evansfr@gmail.com",
+      "telephone": "+2550154321789",
+      "dateInscription": "2023-05-15",
+        "avatar": "/avatar.png",
+      "projets": [
+        {
+          "id": 1,
+          "nom": "Eau pour tous",
+          "description": "Fournir de l'eau potable aux communautés rurales.",
+          "montantObjectif": 5000,
+          "montantCollecte": 3500,
+          "dateDebut": "2024-01-01",
+          "dateFin": "2024-12-31",
+          "status": "En cours",
+          "image": "/image1.jpg"
+        },
+        {
+          "id": 2,
+          "nom": "Éducation pour tous",
+          "description": "Construire des écoles dans les zones défavorisées.",
+          "montantObjectif": 10000,
+          "montantCollecte": 8000,
+          "dateDebut": "2024-02-01",
+          "dateFin": "2024-11-30",
+          "status": "En cours",
+          "image": "/image2.jpg"
+        },
+        {
+          "id": 3,
+          "nom": "Santé communautaire",
+          "description": "Fournir des soins de santé de base aux communautés isolées.",
+          "montantObjectif": 7000,
+          "montantCollecte": 7000,
+          "dateDebut": "2023-06-01",
+          "dateFin": "2024-06-01",
+          "status": "Terminé",
+          "image": "/image3.jpg"
+        }
+      ]
+    }
+  ],
+  "statistiques": {
+    "totalProjets": 3,
+    "projetsEnCours": 2,
+    "projetsTermines": 1,
+    "montantTotalCollecte": 18500,
+    "donateursActifs": 150
+  }
+}
