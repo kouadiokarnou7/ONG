@@ -12,8 +12,11 @@ export default function Setting() {
   });
 
   useEffect(() => {
-    setDonateur(data.donateur);
-    setProfil(data.profil);
+    // 
+    if (data.donateurs && data.donateurs.length > 0) {
+      setDonateur(data.donateurs[0]);
+    }
+    setProfil(data.profil || {});
   }, []);
 
   const handleChange = (e) => {
@@ -28,9 +31,7 @@ export default function Setting() {
   return (
     <DonateurLayout>
       <div className="space-y-10">
-        <h2 className="text-2xl font-bold text-blue-800">
-          Paramètres du compte
-        </h2>
+        <h2 className="text-2xl font-bold text-blue-800">Paramètres du compte</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white shadow rounded-2xl p-6 md:col-span-2">
@@ -39,10 +40,7 @@ export default function Setting() {
             </h3>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label
-                  htmlFor="nom"
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                >
+                <label htmlFor="nom" className="block text-gray-700 text-sm font-bold mb-2">
                   Nom
                 </label>
                 <input
@@ -57,10 +55,7 @@ export default function Setting() {
               </div>
 
               <div className="mb-4">
-                <label
-                  htmlFor="prenom"
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                >
+                <label htmlFor="prenom" className="block text-gray-700 text-sm font-bold mb-2">
                   Prénom
                 </label>
                 <input
@@ -75,10 +70,7 @@ export default function Setting() {
               </div>
 
               <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                >
+                <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
                   Adresse e-mail
                 </label>
                 <input
@@ -93,10 +85,7 @@ export default function Setting() {
               </div>
 
               <div className="mb-4">
-                <label
-                  htmlFor="telephone"
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                >
+                <label htmlFor="telephone" className="block text-gray-700 text-sm font-bold mb-2">
                   Téléphone
                 </label>
                 <input
@@ -119,17 +108,13 @@ export default function Setting() {
             </form>
           </div>
 
-          {/* ---- SECTION MOT DE PASSE ---- */}
           <div className="bg-white shadow rounded-2xl p-6">
             <h3 className="text-lg font-semibold flex items-center gap-2 mb-4">
               <Lock className="text-blue-600" /> Sécurité
             </h3>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label
-                  htmlFor="ancienMotDePasse"
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                >
+                <label htmlFor="ancienMotDePasse" className="block text-gray-700 text-sm font-bold mb-2">
                   Ancien mot de passe
                 </label>
                 <input
@@ -141,10 +126,7 @@ export default function Setting() {
                 />
               </div>
               <div className="mb-4">
-                <label
-                  htmlFor="nouveauMotDePasse"
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                >
+                <label htmlFor="nouveauMotDePasse" className="block text-gray-700 text-sm font-bold mb-2">
                   Nouveau mot de passe
                 </label>
                 <input
@@ -165,7 +147,6 @@ export default function Setting() {
           </div>
         </div>
 
-        {/* ---- SECTION NOTIFICATIONS ---- */}
         <div className="bg-white shadow rounded-2xl p-6 md:col-span-3">
           <h3 className="text-lg font-semibold flex items-center gap-2 mb-4">
             <Bell className="text-blue-600" /> Préférences de notification

@@ -4,7 +4,7 @@ import data from "../../composantjson/benevoleDashboard.json";
 import { p } from "framer-motion/client";
 
 export default function BenevoleDashboard() {
-  // ==================== États ====================
+ 
   const [benevole, setBenevole] = useState({});
   const [projets, setProjets] = useState([]);
   const [stats, setStats] = useState({});
@@ -15,14 +15,14 @@ export default function BenevoleDashboard() {
   const [cvFile, setCvFile] = useState(null); // ← Nouvel état
   const [messageCandidature, setMessageCandidature] = useState(""); // ← Nouvel état
 
-  // ==================== Chargement des données ====================
+ 
   useEffect(() => {
     setBenevole(data.benevole);
     setProjets(data.projetsOng);
     setStats(data.statistiques);
   }, []);
 
-  // ==================== Fonctions ====================
+ 
   const handlePostuler = (projet) => {
     const hasSpecificSkills = projet.competencesRequises && 
       projet.competencesRequises.toLowerCase() !== "pas de compétences particulières";
@@ -39,7 +39,7 @@ export default function BenevoleDashboard() {
 
   const handleDetails = (projet) => {
     setModalDetails(projet);
-    // ✅ Ligne invalide "input.(cv)" supprimée
+ 
   };
 
   const handleConfirmCandidature = () => {
@@ -48,9 +48,7 @@ export default function BenevoleDashboard() {
       return;
     }
 
-    // Ici, en production, vous enverriez cvFile + messageCandidature à une API
-   // console.log("CV :", cvFile);
-    //console.log("Message :", messageCandidature);
+ 
 
     alert("Votre candidature avec CV a été enregistrée !");
     setModalProjet(null);
@@ -58,7 +56,7 @@ export default function BenevoleDashboard() {
     setMessageCandidature("");
   };
 
-  // ==================== Filtrage des projets ====================
+
   const filteredProjets = projets.filter((projet) => {
     const searchLower = search.toLowerCase();
     const searchMatch =
@@ -74,7 +72,7 @@ export default function BenevoleDashboard() {
     return searchMatch && filterMatch;
   });
 
-  // ==================== Composant Modal Détails ====================
+
   const ModalDetails = () => {
     if (!modalDetails) return null;
 
@@ -168,7 +166,7 @@ export default function BenevoleDashboard() {
     );
   };
 
-  // ==================== Composant Carte Projet ====================
+
   const ProjetCard = ({ projet }) => (
     <div className="bg-white shadow rounded-2xl overflow-hidden hover:shadow-lg transition flex flex-col">
       <div className="p-4 space-y-2 flex-1">
@@ -184,8 +182,8 @@ export default function BenevoleDashboard() {
           📍 {projet.lieu} — {projet.status}
         </p>
         <p> date de début : {projet.dateDebut}</p>
-        <p> date de fin : {projet.datefin}</p>
-        <p>nombre de benevole : {projet.nombrebenevole}</p>
+        <p> date de fin : {projet.dateFin}</p>
+        <p>nombre de benevole : {projet.besoinBenevoles}</p>
         <p className="text-sm text-gray-500">
           Compétences : {projet.competencesRequises}
         </p>
@@ -207,7 +205,7 @@ export default function BenevoleDashboard() {
     </div>
   );
 
-  // ==================== Rendu Principal ====================
+  
   return (
     <BenevoleLayout>
       <div className="space-y-6">

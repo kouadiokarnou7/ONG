@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Donateursibebar from "../../composants/donateursidebar";
 import data from "../../composantjson/donateurDashboard.json";
 import { Bell } from "lucide-react";
 import logo from "../../assets/logo1.png";
 
 export default function DonateurLayout({ children }) {
+  const  [donateurs,setdonateurs]= useState({});
+  useEffect(() => {
+    if (data.donateurs && data.donateurs.length > 0) {
+      setdonateurs(data.donateurs[0]);
+    }
+  }, []);
+
+
   return (
     <div className="min-h-screen bg-gray-50 md:flex">
       {/* --- Sidebar et barre mobile (le composant gère déjà le responsive) --- */}
@@ -23,7 +31,7 @@ export default function DonateurLayout({ children }) {
             />
             <div>
               <p className="text-base sm:text-lg font-bold text-gray-800">
-                👋 {data.donateurs.nom} {data.donateurs.prenom}
+                👋 {donateurs.nom} {donateurs.prenom}
               </p>
               <p className="text-xs sm:text-sm text-gray-500">Espace donateurs</p>
             </div>
@@ -33,7 +41,7 @@ export default function DonateurLayout({ children }) {
           <div className="flex items-center gap-4 sm:gap-6">
             {/* Email */}
             <p className="font-medium text-gray-800 text-sm sm:text-base break-all sm:break-normal">
-              {data.donateurs.email}
+              {donateurs.email}
             </p>
             
             {/* Notifications */}

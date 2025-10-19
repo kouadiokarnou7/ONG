@@ -47,7 +47,7 @@ function App() {
         {/* Routes pour la partie  Donateurs */ }
         <Route path="/donateur/dashboard" element={<Donateursdasboard />} />
         <Route path="/donateur/dons" element={<Don />} />
-        <Route path="/donateur/setting" element={<Setting />} />
+        <Route path="/donateur/settings" element={<Setting />} />
 
       </Routes>
     </BrowserRouter>
