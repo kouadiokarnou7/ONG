@@ -7,7 +7,7 @@
       "email": "evansfr@gmail.com",
       "telephone": "+2550154321789",
       "dateInscription": "2023-05-15",
-        "avatar": "/avatar.png",
+      "avatar": "/avatar.png",
       "projets": [
         {
           "id": 1,
@@ -18,7 +18,16 @@
           "dateDebut": "2024-01-01",
           "dateFin": "2024-12-31",
           "status": "En cours",
-          "image": "/image1.jpg"
+          "image": "/image1.jpg",
+          "paiement": {
+            "apiExterne": "https://api.cinetpay.com/v1/payment",
+            "fournisseur": "CinetPay",
+            "devise": "XOF",
+            "cleApiPublique": "CINETPAY_PUBLIC_KEY",
+            "description": "Paiement pour le projet 'Eau pour tous'",
+            "urlRetour": "https://tonsite.com/success",
+            "urlAnnulation": "https://tonsite.com/cancel"
+          }
         },
         {
           "id": 2,
@@ -29,7 +38,16 @@
           "dateDebut": "2024-02-01",
           "dateFin": "2024-11-30",
           "status": "En cours",
-          "image": "/image2.jpg"
+          "image": "/image2.jpg",
+          "paiement": {
+            "apiExterne": "https://api.stripe.com/v1/checkout/sessions",
+            "fournisseur": "Stripe",
+            "devise": "USD",
+            "cleApiPublique": "STRIPE_PUBLIC_KEY",
+            "description": "Paiement pour le projet 'Éducation pour tous'",
+            "urlRetour": "https://tonsite.com/success",
+            "urlAnnulation": "https://tonsite.com/cancel"
+          }
         },
         {
           "id": 3,
@@ -40,7 +58,16 @@
           "dateDebut": "2023-06-01",
           "dateFin": "2024-06-01",
           "status": "Terminé",
-          "image": "/image3.jpg"
+          "image": "/image3.jpg",
+          "paiement": {
+            "apiExterne": "eyJraWQiOiIxIiwiYWxnIjoiRVMyNTYifQ.eyJ0dCI6IkFBVCIsInN1YiI6IjExODEyIiwibWF2IjoiMSIsImV4cCI6MjA3NjA1OTM1OSwiaWF0IjoxNzYwNTI2NTU5LCJwbSI6IkRBRixQQUYiLCJqdGkiOiI0NDRhZGNhOS03NDcyLTRiMGYtYWNmMS1iZDNkZTA2ODY1MjEifQ.Qefwu2FRFYpK4HU6x2HOn3191HkEUcmZuzcZUd8mysm7jJrzrlGMt2N6KieKxIA9B2I5M-h32zRhXOtzCE_fAA",
+            "fournisseur": "PayPal",
+            "devise": "fcfa",
+            "cleApiPublique": "PAYPAL_CLIENT_ID",
+            "description": "Paiement pour le projet 'Santé communautaire'",
+            "urlRetour": "https://tonsite.com/success",
+            "urlAnnulation": "https://tonsite.com/cancel"
+          }
         }
       ]
     }

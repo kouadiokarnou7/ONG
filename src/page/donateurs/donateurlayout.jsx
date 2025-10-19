@@ -2,6 +2,7 @@ import React from "react";
 import Donateursibebar from "../../composants/donateursidebar";
 import data from "../../composantjson/donateurDashboard.json";
 import { Bell } from "lucide-react";
+import logo from "../../assets/logo1.png";
 
 export default function DonateurLayout({ children }) {
   return (
@@ -16,13 +17,13 @@ export default function DonateurLayout({ children }) {
           <div className="flex items-center gap-3 sm:gap-4">
             {/* Avatar / Logo */}
             <img
-              src={data.donateur.avatar || ""}
-              alt={`${data.donateur.nom} ${data.donateur.prenom}`}
+              src={logo || ""}
+              alt={`${data.donateurs.nom} ${data.donateurs.prenom}`}
               className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
             />
             <div>
               <p className="text-base sm:text-lg font-bold text-gray-800">
-                👋 {data.donateur.nom} {data.donateur.prenom}
+                👋 {data.donateurs.nom} {data.donateurs.prenom}
               </p>
               <p className="text-xs sm:text-sm text-gray-500">Espace donateurs</p>
             </div>
@@ -32,7 +33,7 @@ export default function DonateurLayout({ children }) {
           <div className="flex items-center gap-4 sm:gap-6">
             {/* Email */}
             <p className="font-medium text-gray-800 text-sm sm:text-base break-all sm:break-normal">
-              {data.donateur.email}
+              {data.donateurs.email}
             </p>
             
             {/* Notifications */}

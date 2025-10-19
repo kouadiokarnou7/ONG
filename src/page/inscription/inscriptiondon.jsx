@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, ArrowLeft } from "lucide-react";
 import image from "../../assets/image1.png";
 
@@ -8,11 +8,12 @@ export default function Inscriptiondon() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: "",
+    nomcomplet: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,9 +27,12 @@ export default function Inscriptiondon() {
       alert("Veuillez accepter les conditions d'utilisation");
       return;
     }
-    
+    const submit= {...formData};
+    console.log ("Formulaire soumis :", submit);
     console.log("Inscription donateur:", formData);
     alert("Inscription réussie !");
+    navigate("/donateur/dashboard");
+
   };
 
   return (
@@ -63,10 +67,11 @@ export default function Inscriptiondon() {
               </label>
               <input
                 type="text"
+                name="fullname"
                 placeholder="Entrez votre nom complet"
-                value={formData.fullName}
+                value={formData.nomcomplet}
                 onChange={(e) =>
-                  setFormData({ ...formData, fullName: e.target.value })
+                  setFormData({ ...formData, nomcplet: e.target.value })
                 }
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
                 required

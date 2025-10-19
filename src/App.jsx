@@ -15,6 +15,10 @@ import OngSettings from './page/ong/OngSettings';
 import  BenevoleSettings from './page/benevoles/BenevoleSettings';
 import BenevoleDashboard from './page/benevoles/BenevoleDashboard';
 import BenevoleStats from './page/benevoles/BenevoleStats';
+
+import Donateursdasboard from './page/donateurs/donateursdashboard';
+import Don from './page/donateurs/don';
+import Setting from './page/donateurs/setting';
 function App() {
   return (
     <BrowserRouter>
@@ -29,17 +33,22 @@ function App() {
         <Route path="/inscription/donateur" element={<InscriptionDon />} />
         <Route path="/inscription/benevole" element={<InscriptionBen />} />
         
-        {/* Routes ONG Dashboard */}
+        {/* Routes  pour les parties ONG  */}
         <Route path="/ong/dashboard" element={<OngDashboard />} />
         <Route path="/ong/projets" element={<OngProjets />} />
         <Route path="/ong/dons" element={<OngDons />} />
         <Route path="/ong/benevoles" element={<OngBenevoles />} />
         <Route path="/ong/settings" element={<OngSettings />} />
 
-        {/* Routes Bénévole Dashboard */}
+        {/* Routes  pour la partie Bénévole  */}
         <Route path="/benevole/dashboard" element={<BenevoleDashboard />} />
         <Route path="/benevole/stats" element={<BenevoleStats />} />
         <Route path="/benevole/settings" element={<BenevoleSettings />} />
+        {/* Routes pour la partie  Donateurs */ }
+        <Route path="/donateur/dashboard" element={<Donateursdasboard />} />
+        <Route path="/donateur/dons" element={<Don />} />
+        <Route path="/donateur/setting" element={<Setting />} />
+
       </Routes>
     </BrowserRouter>
   );

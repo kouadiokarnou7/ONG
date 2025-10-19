@@ -1,5 +1,28 @@
-import React from "react";
-import logo4 from "../assets/images.jpg"; // remplace par le chemin de ton image
+import React, { useState } from "react";
+import { ChevronDown } from "lucide-react"; // Icône de flèche
+import logo4 from "../assets/images.jpg"; // ton image
+
+function Accordéon({ titre, children }) {
+  const [ouvert, setOuvert] = useState(false);
+
+  return (
+    <details
+      open={ouvert}
+      onToggle={() => setOuvert(!ouvert)}
+      className="bg-white rounded-2xl shadow-xl p-6 md:p-8 transition-all duration-300"
+    >
+      <summary className="text-2xl font-bold text-blue-900 cursor-pointer flex items-center justify-between select-none">
+        <span>{titre}</span>
+        <ChevronDown
+          className={`w-6 h-6 text-blue-700 transform transition-transform duration-300 ${
+            ouvert ? "rotate-180" : ""
+          }`}
+        />
+      </summary>
+      <div className="mt-4 text-gray-700 text-lg leading-relaxed">{children}</div>
+    </details>
+  );
+}
 
 export default function Apropos() {
   return (
@@ -17,47 +40,54 @@ export default function Apropos() {
         </p>
 
         {/* Accordéons */}
-        <details className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
-          <summary className="text-2xl font-bold text-blue-900 cursor-pointer flex items-center">
-            🎯 Notre Mission (clicker )
-          </summary>
-          <div className="mt-4 text-gray-700 text-lg leading-relaxed">
-            <p className="mb-2">
-              Nyaha est née d'un constat simple : <span className="font-semibold text-blue-600">de nombreuses ONG manquent de visibilité</span>, 
-              tandis que des milliers de personnes souhaitent s'engager mais ne savent pas par où commencer.
-            </p>
-            <p>
-              Notre plateforme crée le pont entre ces deux mondes en offrant aux ONG un espace pour présenter leurs projets 
-              et en permettant aux donateurs et bénévoles de découvrir des causes qui leur tiennent à cœur.
-            </p>
-          </div>
-        </details>
+        <Accordéon titre="🎯 Notre Mission">
+          <p className="mb-2">
+            Nyaha est née d'un constat simple :{" "}
+            <span className="font-semibold text-blue-600">
+              de nombreuses ONG manquent de visibilité
+            </span>
+            , tandis que des milliers de personnes souhaitent s'engager mais ne
+            savent pas par où commencer.
+          </p>
+          <p>
+            Notre plateforme crée le pont entre ces deux mondes en offrant aux
+            ONG un espace pour présenter leurs projets et en permettant aux
+            donateurs et bénévoles de découvrir des causes qui leur tiennent à
+            cœur.
+          </p>
+        </Accordéon>
 
-        <details className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
-          <summary className="text-2xl font-bold text-blue-900 cursor-pointer flex items-center">
-            💡 Nos Valeurs (clicker )
-          </summary>
-          <div className="mt-4 text-gray-700 text-lg grid grid-cols-1 gap-4">
+        <Accordéon titre="💡 Nos Valeurs">
+          <div className="grid grid-cols-1 gap-4">
             <div>
               <h4 className="font-bold text-blue-900 mb-1">🔍 Transparence</h4>
-              <p>Nous vérifions chaque ONG et assurons une transparence totale sur l'utilisation des dons.</p>
+              <p>
+                Nous vérifions chaque ONG et assurons une transparence totale
+                sur l'utilisation des dons.
+              </p>
             </div>
             <div>
               <h4 className="font-bold text-blue-900 mb-1">🤝 Accessibilité</h4>
-              <p>Une plateforme simple et intuitive pour que chacun puisse facilement s'engager.</p>
+              <p>
+                Une plateforme simple et intuitive pour que chacun puisse
+                facilement s'engager.
+              </p>
             </div>
             <div>
               <h4 className="font-bold text-blue-900 mb-1">💪 Impact</h4>
-              <p>Chaque action compte. Nous mesurons et partageons l'impact réel de chaque contribution.</p>
+              <p>
+                Chaque action compte. Nous mesurons et partageons l'impact réel
+                de chaque contribution.
+              </p>
             </div>
           </div>
-        </details>
+        </Accordéon>
       </div>
 
-      {/* Image fixe à droite */}
+      {/* Image à droite */}
       <div className="md:w-1/2 flex justify-center">
         <img
-          src={logo4} // remplace par ton image
+          src={logo4}
           alt="Enfants en détresse"
           className="rounded-2xl shadow-xl w-full object-cover"
         />

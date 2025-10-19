@@ -2,6 +2,7 @@ import React from "react";
 import BenevoleSidebar from "../../composants/BenevoleSidebar";
 import data from "../../composantjson/benevoleDashboard.json";
 import { Bell } from "lucide-react";
+import logo1 from "../../assets/logo1.png";
 
 export default function BenevoleLayout({ children }) {
   return (
