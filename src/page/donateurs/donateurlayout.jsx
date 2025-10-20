@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Donateursibebar from "../../composants/donateursidebar";
 import data from "../../composantjson/donateurDashboard.json";
 import { Bell } from "lucide-react";
-import logo from "../../assets/logo1.png";
+
 
 export default function DonateurLayout({ children }) {
   const  [donateurs,setdonateurs]= useState({});
@@ -25,8 +25,8 @@ export default function DonateurLayout({ children }) {
           <div className="flex items-center gap-3 sm:gap-4">
             {/* Avatar / Logo */}
             <img
-              src={logo || ""}
-              alt={`${data.donateurs.nom} ${data.donateurs.prenom}`}
+              src={donateurs.avatar || ""}
+              alt={`${donateurs.nom || ""} ${donateurs.prenom || ""}`}
               className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
             />
             <div>

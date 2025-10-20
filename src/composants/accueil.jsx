@@ -76,7 +76,7 @@ function Accueil() {
               onClick={() => window.location.href = '#catalogue'}
               className="text-blue-600 font-semibold hover:underline text-lg"
             >
-              Voir le catalogue →
+              Voir les  ONG partenaires  →
             </button>
           </div>
           

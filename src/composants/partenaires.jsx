@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import onglist from "../composantjson/partenaires.json";
 
 // Page catalogue: on enlève la description sur la carte.
@@ -6,6 +6,18 @@ import onglist from "../composantjson/partenaires.json";
 function Catalogue() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedOng, setSelectedOng] = useState(null);
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    alert("vous devez être connecté pour faire un don ou vous engager en tant que bénévole.");
+  };
+
+  const listRef = useRef(null);
+  const scrollBy = (dir) => {
+    const el = listRef.current;
+    if (!el) return;
+    const amount = el.clientWidth * 0.9;
+    el.scrollBy({ left: dir * amount, behavior: 'smooth' });
+  };
 
   // ONG mises en avant (6 max)
   const visibleOngs = onglist.slice(0, 6);
@@ -40,61 +52,83 @@ function Catalogue() {
           />
         </div>
 
-        {/* Résultats filtrés */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Résultats filtrés (carrousel) */}
+        <div className="relative">
           {filteredOngs.length > 0 ? (
-            filteredOngs.map((ong) => (
-              <div
-                key={ong.id}
-                className="bg-white rounded-lg shadow-lg hover:shadow-2xl transition overflow-hidden flex flex-col"
+            <>
+              <button
+                type="button"
+                onClick={() => scrollBy(-1)}
+                className="hidden md:flex absolute -left-3 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full w-10 h-10 items-center justify-center hover:bg-gray-100"
+                aria-label="Précédent"
               >
-                {/* Image ONG */}
-                <img
-                  src={ong.image}
-                  alt={ong.name}
-                  className="w-full h-48 object-cover"
-                />
+                ‹
+              </button>
+              <div
+                ref={listRef}
+                className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4"
+              >
+                {filteredOngs.map((ong) => (
+                  <div key={ong.id} className="min-w-[280px] md:min-w-[340px] lg:min-w-[380px] snap-center">
+                    <div className="bg-white rounded-lg shadow-lg hover:shadow-2xl transition overflow-hidden flex flex-col">
+                      {/* Image ONG */}
+                      <img
+                        src={ong.image}
+                        alt={ong.name}
+                        className="w-full h-48 object-cover"
+                      />
 
-                {/* Contenu ONG (sans description/cause) */}
-                <div className="p-6 flex flex-col gap-4 flex-1">
-                  <h3 className="text-xl font-bold text-gray-800">{ong.name}</h3>
-                  <h5 className="text-xl font-semibold text-gray-800"> {ong.desc} </h5>
+                      {/* Contenu ONG (sans description/cause) */}
+                      <div className="p-6 flex flex-col gap-4 flex-1">
+                        <h3 className="text-xl font-bold text-gray-800">{ong.name}</h3>
+                        <h5 className="text-xl font-semibold text-gray-800"> {ong.desc} </h5>
 
-                  {/* Boutons */}
-                  <div className="mt-auto flex flex-wrap gap-3">
-                    {/* "En savoir +" toujours présent */}
-                    <button
-                      onClick={() => setSelectedOng(ong)}
-                      className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-                    >
-                      En savoir +
-                    </button>
+                        {/* Boutons */}
+                        <div className="mt-auto flex flex-wrap gap-3">
+                          {/* "En savoir +" toujours présent */}
+                          <button
+                            onClick={() => setSelectedOng(ong)}
+                            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                          >
+                            En savoir +
+                          </button>
 
-                    {/* Don */}
-                    {ong.besoin && ong.besoin.includes("dons") ? (
-                      <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
-                        Faire un don
-                      </button>
-                    ) : (
-                      <button className="bg-gray-300 text-gray-600 px-4 py-2 rounded cursor-not-allowed">
-                        Faire un don
-                      </button>
-                    )}
+                          {/* Don */}
+                          {ong.besoin && ong.besoin.includes("dons") ? (
+                            <button onClick={handlesubmit} className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
+                              Faire un don
+                            </button>
+                          ) : (
+                            <button className="bg-gray-300 text-gray-600 px-4 py-2 rounded cursor-not-allowed">
+                              Faire un don
+                            </button>
+                          )}
 
-                    {/* Bénévolat */}
-                    {ong.besoin && ong.besoin.includes("bénévoles") ? (
-                      <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-                        S'engager
-                      </button>
-                    ) : (
-                      <button className="bg-gray-300 text-gray-600 px-4 py-2 rounded cursor-not-allowed">
-                        S'engager
-                      </button>
-                    )}
+                          {/* Bénévolat */}
+                          {ong.besoin && ong.besoin.includes("bénévoles") ? (
+                            <button onClick={handlesubmit} className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                              S'engager
+                            </button>
+                          ) : (
+                            <button className="bg-gray-300 text-gray-600 px-4 py-2 rounded cursor-not-allowed">
+                              S'engager
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))
+              <button
+                type="button"
+                onClick={() => scrollBy(1)}
+                className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full w-10 h-10 items-center justify-center hover:bg-gray-100"
+                aria-label="Suivant"
+              >
+                ›
+              </button>
+            </>
           ) : (
             <p className="text-center text-gray-500">Aucune ONG trouvée.</p>
           )}
@@ -155,12 +189,12 @@ function Catalogue() {
                 </button>
 
                 {selectedOng.besoin?.includes("dons") && (
-                  <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
+                  <button onClick={handlesubmit} className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
                     Faire un don
                   </button>
                 )}
                 {selectedOng.besoin?.includes("bénévoles") && (
-                  <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                  <button onClick={handlesubmit} className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
                     S'engager
                   </button>
                 )}

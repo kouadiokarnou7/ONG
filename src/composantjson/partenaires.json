@@ -32,5 +32,21 @@
     "cause": "Améliorer la qualité de vie des personnes atteintes de maladies respiratoires à travers la sensibilisation, le soutien et la recherche.",
     "action": ["En savoir+", "dons", "bénévoles"],
     "image": "/image5.png"
+  },
+  {
+    "id": 5,
+    "name": "Coeurs Enfants",
+    "desc": "Une ONG dédiée à la lutte contre les maladies cardiaques.",
+    "cause": "Améliorer la qualité de vie des personnes atteintes de maladies de Coeurs à travers la sensibilisation, le soutien et la recherche.",
+    "action": ["En savoir+", "dons", "bénévoles"],
+    "image": "/logo2.png"
+  },
+  {
+    "id": 6,
+    "name": "Aide Alimentaire Mondiale",
+    "desc": "Lutte contre la faim et la malnutrition.",
+    "cause": "Fournir une aide alimentaire d'urgence et des programmes de nutrition durables aux populations vulnérables.",
+    "action": ["En savoir+", "dons", "bénévoles"],
+    "image": "/image1.png"
   }
 ]

@@ -4,7 +4,8 @@
     "prenom": "Augustin",
     "email": "dupont@gmail.com",
     "telephone": "+225 07 12 34 56 78",
-    "dateInscription": "2022-05-15"
+    "dateInscription": "2022-05-15",
+    "avatar": "/aa.jpg"
   },
 
   "projetsOng": [
